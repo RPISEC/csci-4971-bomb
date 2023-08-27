@@ -178,12 +178,17 @@ void *watchred(void *crap)
 __start:
 	putchar('\n');
 #warning "TODO: write RST \"\n\n\" A(BB,BK) \"  SOMEONE SET US UP THE BOMB  \" RST \"\n\n\""
+#if 0
 	__asm__(""
 			"movl $0xDEADBEEF, %esp\n"
 			"movl $0xCAFEBABE, %ebp\n"
 			"xor %eax, %eax\n"
 			"call *%eax"
 			);
+#else
+	// Added 26 Aug 2023
+	*(int *)0 = 0;
+#endif
 	return NULL; // shut up GCC
 }
 
